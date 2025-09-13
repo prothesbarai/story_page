@@ -18,7 +18,7 @@ class StoryModel{
         image: json['image'],
         title: json['title'],
         subtitle: json['subtitle'],
-        duration: json['duration'],
+        duration: (json['duration'] as num).toDouble(),
         navigatePage: json['navigatePage']
     );
   }
