@@ -62,6 +62,12 @@ class _HomePageState extends State<HomePage> {
               itemCount: allStories.length,
               itemBuilder: (context, index) {
                 final storyList = allStories[index];
+                /*
+                    Akta list er maje onk story list ase,
+                    abr sei story list er maje onk story ase,
+                    Sei Story theke   storyList[0]   1st Story Image + Text Display hobe,
+                    Then Setay Navigate Korle Story Page e Sob Dekha Jabe
+                */
                 final firstStoryList = storyList[0];
                 return GestureDetector(
                   onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => StoryPage(),)),
