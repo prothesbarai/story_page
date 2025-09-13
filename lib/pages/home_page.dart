@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:story_page/pages/story_page.dart';
 import 'package:story_page/widget/loader/overlay_loading.dart';
 import 'package:story_page/widget/scafold_part/custom_appbar.dart';
 import 'package:story_page/widget/scafold_part/custom_drawer.dart';
@@ -16,6 +18,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<List<StoryModel>> allStories = [];
+  double boxBorderRadius = 10;
 
   @override
   void initState() {
@@ -46,16 +49,53 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    
+
     return Scaffold(
       appBar: CustomAppbar(pageTitle: "Home"),
       drawer: CustomDrawer(),
       body: SingleChildScrollView(
         child: Container(
-
+          height: 180,
+          margin: EdgeInsets.zero,
+          child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: allStories.length,
+              itemBuilder: (context, index) {
+                final storyList = allStories[index];
+                final firstStoryList = storyList[0];
+                return GestureDetector(
+                  onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => StoryPage(),)),
+                  child: _buildStoryBox(firstStoryList, index, allStories.length),
+                );
+              },
+          ),
 
         ),
       ),
     );
   }
+
+
+
+  Widget _buildStoryBox(StoryModel story, int index, int len){
+    return Container(
+      width: 100,
+      margin: EdgeInsets.only(left: index == 0 ? 10 : 0, right: index == len-1 ? 10 : 10, top: 10, bottom: 10),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(boxBorderRadius), image: DecorationImage(image: CachedNetworkImageProvider(story.image),fit: BoxFit.cover)),
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(bottomRight: Radius.circular(boxBorderRadius),bottomLeft: Radius.circular(boxBorderRadius)),
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(color: Colors.black54,),
+            padding: EdgeInsets.all(5),
+            child: Text(story.title,style: TextStyle(color: Colors.white),textAlign: TextAlign.center,maxLines: 1,overflow: TextOverflow.ellipsis,),
+          ),
+        ),
+      ),
+    );
+  }
+
+
 }
