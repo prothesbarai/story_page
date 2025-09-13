@@ -2,7 +2,7 @@ class StoryModel{
   final String image;
   final String title;
   final String subtitle;
-  final double duration;
+  final int duration;
   final String navigatePage;
 
   StoryModel({
@@ -18,7 +18,7 @@ class StoryModel{
         image: json['image'],
         title: json['title'],
         subtitle: json['subtitle'],
-        duration: (json['duration'] as num).toDouble(),
+        duration: json['duration'],
         navigatePage: json['navigatePage']
     );
   }

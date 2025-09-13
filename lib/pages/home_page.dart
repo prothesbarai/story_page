@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                 */
                 final firstStoryList = storyList[0];
                 return GestureDetector(
-                  onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => StoryPage(),)),
+                  onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => StoryPage(stories: storyList,),)),
                   child: _buildStoryBox(firstStoryList, index, allStories.length),
                 );
               },
@@ -82,11 +82,11 @@ class _HomePageState extends State<HomePage> {
   }
 
 
-
+  /// >>> ============================= Home Page Items Builder Design Start Here ===========================
   Widget _buildStoryBox(StoryModel story, int index, int len){
     return Container(
       width: 100,
-      margin: EdgeInsets.only(left: index == 0 ? 10 : 0, right: index == len-1 ? 10 : 10, top: 10, bottom: 10),
+      margin: EdgeInsets.only(left: index == 0 ? 10 : 0, right: 10, top: 10, bottom: 10),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(boxBorderRadius), image: DecorationImage(image: CachedNetworkImageProvider(story.image),fit: BoxFit.cover)),
       child: Align(
         alignment: Alignment.bottomCenter,
@@ -102,6 +102,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+  /// <<< ============================= Home Page Items Builder Design End Here =============================
 
 
 }
