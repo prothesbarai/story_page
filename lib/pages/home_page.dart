@@ -10,8 +10,9 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppbar(pageTitle: "Home"),
       drawer: CustomDrawer(),
-
-
+      body: SingleChildScrollView(
+        child: Container(),
+      ),
     );
   }
 }
