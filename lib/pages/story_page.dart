@@ -11,14 +11,13 @@ class StoryPage extends StatefulWidget {
 }
 
 class _StoryPageState extends State<StoryPage> with SingleTickerProviderStateMixin{
-  late int currentIndex;
+  int currentIndex = 0;
   late AnimationController _animationController;
 
 
   @override
   void initState() {
     super.initState();
-    currentIndex = 0;
     _setUpAnimation();
   }
 
