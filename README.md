@@ -30,8 +30,8 @@ git clone https://github.com/prothesbarai/story_page.git
 # System Splash Screen Modify With Color And Logo..
 ## Step - 1
 - Create a values-v31 folder  >  in path     android/app/src/main/res/
-- so final path is :     /android/app/src/main/res/values-v31/
-- Now create a styles.xml file in this path so : /android/app/src/main/res/values-v31/styles.xml
+- so final path is :     <mark>/android/app/src/main/res/values-v31/</mark>
+- Now create a styles.xml file in this path so : <mark>/android/app/src/main/res/values-v31/styles.xml</mark>
 - now write this code in this file
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -46,8 +46,8 @@ git clone https://github.com/prothesbarai/story_page.git
 ```
 
 ## Step - 2
-- Create a colors.xml file in this path /android/app/src/main/res/values/
-- So :  /android/app/src/main/res/values/colors.xml
+- Create a colors.xml file in this path <mark>/android/app/src/main/res/values/</mark>
+- So :  <mark>/android/app/src/main/res/values/colors.xml</mark>
 - Now Write Code in this file :
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -58,7 +58,7 @@ git clone https://github.com/prothesbarai/story_page.git
 
 
 ## Step - 3
-- Open     /android/app/build.gradle.kts  file
+- Open     <mark>/android/app/build.gradle.kts</mark>  file
 - And Write Code at last position
 ```kotlin
 dependencies {
